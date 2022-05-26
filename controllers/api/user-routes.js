@@ -5,9 +5,9 @@ const { restore } = require('../../models/User');
 // api routes
 router.get('/', (req , res) => {
    User.findAll({
-       attributes: {}
+       attributes: { exclude: ['password']}
    })
-   .then(dbuser => res.json(dbuser))
+   .then(userInfo => res.json(userInfo))
    .catch(err => {
        console.log(err);
        res.status(500).json(err);
@@ -26,12 +26,12 @@ router.get('/', (req, res) => {
                 }
             ]
         })
-        .then(dbuser => {
-            if (!dbuser) {
+        .then(userInfo => {
+            if (!userInfo) {
                 res.status(404).json({ message: 'No user in our database with that id.  Please check your entry and try again.'});
                 return;  
             }
-            res.json(dbuser);
+            res.json(userInfo);
         })
         .catch(err => {
             console.log(err);
@@ -45,14 +45,14 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-    .then(dbuser => {
+    .then(userInfo => {
         req.session.save(() => {
             req.session.save(() => {
-                req.session.user_id = dbuser.id;
-                req.session.username = dbuser.username;
+                req.session.user_id = userInfo.id;
+                req.session.username = userInfo.username;
                 req.session.loggedIn = true;
 
-                res.json(dbuser)
+                res.json(userInfo)
             });
         })
     })
@@ -76,8 +76,8 @@ router.put('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbuser => {
-        if (!dbuser[0]) {
+    .then(userInfo => {
+        if (!userInfo[0]) {
             res.status(404).json({ message: 'That id could not be found in our database.  Please check your entry and try again.'});
             return;
         }
@@ -94,12 +94,12 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbuser => {
-        if (!dbuser) {
+    .then(userInfo => {
+        if (!userInfo) {
             res.status(404).json({ message: 'That id could not be found in our database.  Please check your entry and try again'});
             return;
         }
-        res.json(dbuser);
+        res.json(userInfo);
     })
     .catch(err => {
         console.log(err);

@@ -1,6 +1,12 @@
-// list associations here 
-const User = require('./User');
-
 // start with importing all models
 
-module.exports = { User };
+const User = require('./User');
+const Post = require('./Post');
+const Comment = require('./Comment');
+
+// list associations here 
+
+
+
+
+module.exports = { User, Post, Comment };
