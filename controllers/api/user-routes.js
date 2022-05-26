@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const { restore } = require('../../models/User');
+
 
 // api routes
 router.get('/', (req , res) => {
@@ -47,15 +47,13 @@ router.post('/', (req, res) => {
     })
     .then(userInfo => {
         req.session.save(() => {
-            req.session.save(() => {
-                req.session.user_id = userInfo.id;
-                req.session.username = userInfo.username;
-                req.session.loggedIn = true;
+            req.session.user_id = userInfo.id;
+            req.session.username = userInfo.username;
+            req.session.loggedIn = true;
 
-                res.json(userInfo)
+            res.json(userInfo)
             });
         })
-    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -63,17 +61,49 @@ router.post('/', (req, res) => {
 });  
 
 router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(userInfo => {
+        if (!userInfo) {
+            res.status(400).json({ message: "Email address not found; please check your entry and try again!"})
+            return;
+        }
 
+        const validPassword = userInfo.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({ message: 'Invalid password.  Please check your entry and try again.'})
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userInfo.id;
+            req.session.username = userInfo.username;
+            req.session.loggedIn = true;
+
+            res.json({ user: userInfo, message: "Logged in"});
+        });
+    })
 });
 
 router.post('/logout', (req, res) => { 
-
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 });
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
+        individualHooks: true,
         where: {
-            id: req.params.id
+            id: req.params.id  // only parameter being changed is passed through function
         }
     })
     .then(userInfo => {
@@ -107,4 +137,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-module.exports = router
+module.exports = router;
