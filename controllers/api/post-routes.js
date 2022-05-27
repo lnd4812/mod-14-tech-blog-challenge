@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('sequelize');
-const withAuth = require('../../utils/auth');
-const { Post, User } = require('../../models');
-const res = require('express/lib/response');
+// const withAuth = require('../../utils/auth');
+const { Post, User, Comment } = require('../../models');
 
 // retrieve all of a user's blog posts
-router.get('/', (req, req) => {
+router.get('/', (req, res) => {
     Post.findAll({
         attributes:[
             'id',
@@ -14,6 +13,19 @@ router.get('/', (req, req) => {
             'created_at'
         ],
         include: [
+            {
+                model: Comment,
+                attributes: [
+                    'id', 
+                    'comment', 
+                    'post_id',
+                    'created_at'
+                ],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -60,7 +72,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create a new post
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Post.create({
         post_title: req.body.post_title,
         post_link: req.body.post_link,
@@ -74,7 +86,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // update a post
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Post.update(
         {
             post_title: req.body.post_title
@@ -98,7 +110,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // delete post
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

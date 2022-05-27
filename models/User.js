@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 class User extends Model {}
 
-// set up table structure
+// set up table structure for User model
 User.init(
     {
         id: {
@@ -44,10 +44,8 @@ User.init(
             async beforeUpdate(updatedUserData) {
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 15);
                 return updatedUserData;
-            }    
-    },
-
-    {
+            },    
+    
         sequelize,
         timestamps: false,
         freezeTableName: true,
