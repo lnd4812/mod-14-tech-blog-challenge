@@ -1,12 +1,16 @@
 // start with importing all models
-
-
 const User = require('./User');
-// // const Post = require('./Post');
+const Post = require('./Post');
 // // const Comment = require('./Comment');
 
-// // list associations here 
+// outline associations here 
+User.hasMany(Post, {
+    foreignKey: 'user_id'
+});
 
+Post.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
 
 
