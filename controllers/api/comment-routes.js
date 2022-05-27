@@ -1,5 +1,48 @@
 const router = require('express').Router();
-const sequelize = require('sequelize');
-const { Post, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
+const { Comment } = require('../../models');
+
+router.get('/', (req, res) => {
+    Comment.findAll()
+    .then(commentInfo => res.json(commentInfo))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.post('/', withAuth, (req, res) => {
+    if (req.session) {
+        Comment.create({
+            comment: req.body.comment,
+            post_id: req.body.post_id,
+            user_id: req.body.user_id
+        })
+        .then(commentInfo => res.json(commentInfo))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    }
+});
+
+router.delete('/:id', withAuth, (req, res) => {
+    Comment.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(commentInfo => {
+        if(!commentInfo) {
+            res.status(404).json({ message: 'That id does not match any comments in our database. Please check your entry and try again'});
+            return;
+        }
+        res.json(commentInfo);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
 
 module.exports = router;
