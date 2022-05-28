@@ -10,7 +10,7 @@
             <label for"post-url">Post URL</label>
             <input id="post-url" name="post-url" />
         </div>
-        <button type="submit" class="create-btn">Create Post</button>
+        <button type="submit" class="btn create-btn">Create Post</button>
     </form>
 </section>
 
@@ -21,7 +21,7 @@
         {{#each posts as |post|}}
         <li>
             {{> post-blurb post}}
-            <button type="submit" class="edit-btn">
+            <button type="submit" class="btn edit-btn">
                 <a href="/dashboard/edit/{{post.id}}" class="edit">Edit post</a>
             </button>
         </li>
@@ -30,4 +30,4 @@
 </section>
 
 {{/if}}
-<script src="/javascript/new-post.js"></script>
+<script src="/javascript/newpost.js"></script>

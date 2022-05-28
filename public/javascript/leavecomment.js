@@ -1,4 +1,5 @@
 
+// set up comment functionality
 async function commentHandler(event) {
     event.preventDefault();
 

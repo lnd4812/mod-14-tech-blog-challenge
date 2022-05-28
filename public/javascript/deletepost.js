@@ -1,3 +1,5 @@
+// set up functionality to allow users to delete their own posts
+
 async function deletePost(event) {
     event.preventDefault();
 

@@ -1,3 +1,5 @@
+// set up functionality to add a new post
+
 async function newPost(event) {
     event.preventDefault();
 

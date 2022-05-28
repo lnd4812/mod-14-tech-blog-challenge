@@ -1,3 +1,5 @@
+// functionality to enable users to edit their own posts
+
 async function editPost(event) {
     event.preventDefault();
 
