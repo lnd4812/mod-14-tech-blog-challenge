@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-// const variables to import routes go here
+// const variables to import routes 
 const userRoutes = require('./user-routes.js');
-const postRoutes = require('./post-routes.js');
-const commentRoutes = require('./comment-routes.js');
+const postRoutes = require('./post-routes');
+const commentRoutes = require('./comment-routes');
 
-// router.use('/', xxxRoutes); go here
+// create api connections for the blog models
 router.use('./users', userRoutes);
 router.use('./posts', postRoutes);
 router.use('./comments', commentRoutes);

@@ -1,17 +1,19 @@
-async function newPost(event) {
+// set up functionality to add a new post
+
+async function newPostHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_url = document.querySelector('input[name="post-url"]').value;
+    const post_title = document.querySelector('input[name="post-title"]').value.trim();
+    const post_link = document.querySelector('input[name="post-link"]').value.trim();
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
-            title, 
-            post_url
+            post_title,
+            post_link
         }),
         headers: {
-            'Content_TYPE': 'application/json'
+            'Content-Type': "application/json"
         }
     });
 
@@ -22,5 +24,4 @@ async function newPost(event) {
     }
 }
 
-document.querySelector('.post-entry').addEventListener('submit', newPost);
-
+document.querySelector('.post-entry').addEventListener("submit", newPostHandler);

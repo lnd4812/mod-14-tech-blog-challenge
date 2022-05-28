@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
         ]
     })
     .then(postInfo => {
+        // sequelize to affect only needed property
         const posts = postInfo.map(post => post.get({ plain: true}));
         res.render('homepage', {
             posts,
@@ -74,7 +75,7 @@ router.get('/post/:id', (req, res) => {
             }
             const post = postInfo.get({ plain: true });
             
-            res.render('blog_post', {
+            res.render('blogpost', {
                 post,
                 loggedIn: req.session.loggedIn
             });

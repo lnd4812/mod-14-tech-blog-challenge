@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const sequelize = require('sequelize');
-// const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 const { Post, User, Comment } = require('../../models');
 
-// retrieve all of a user's blog posts
+// retrieve all blogs/bloggers
 router.get('/', (req, res) => {
     Post.findAll({
         attributes:[
@@ -12,15 +12,12 @@ router.get('/', (req, res) => {
             'post_title',
             'created_at'
         ],
+        // in date order
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: Comment,
-                attributes: [
-                    'id', 
-                    'comment', 
-                    'post_id',
-                    'created_at'
-                ],
+                attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -32,14 +29,14 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(postInfo => req.json(postInfo))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        .then(postInfo => req.json(postInfo))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
     });
 });
 
-// retrieve a specific post
+// retrieve a specific post by id
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -53,77 +50,88 @@ router.get('/:id', (req, res) => {
         ],
         include: [
             {
+                model: Comment,
+                attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
+                include: {   
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
                 model: User,
                 attributes: ['username']
-            }
+            }    
         ]
     })
-    .then(postInfo => {
-        if (!postInfo) {
-            res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
-            return;
-        }
-        res.json(postInfo);
+        .then(postInfo => {
+            if (!postInfo) {
+                res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
+                return;
+            }
+            res.json(postInfo);
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-});
-
-// create a new post
-router.post('/', (req, res) => {
-    Post.create({
-        post_title: req.body.post_title,
-        post_link: req.body.post_link,
-        user_id: req.session.user_id
-    })
-    .then(postInfo => res.json(postInfo))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
     });
 });
 
+// // create a new post
+// router.post('/', withAuth, (req, res) => {
+//     Post.create({
+//         post_title: req.body.post_title,
+//         post_link: req.body.post_link,
+//         user_id: req.session.user_id
+//     })
+//         .then(postInfo => res.json(postInfo))
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//     });
+// });
+
+
+
 // update a post
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             post_title: req.body.post_title
         },
-        { where: {
-            id: req.params.id
+        { 
+            where: {
+                id: req.params.id
+            }
         }
-    }
     )
-    .then(postInfo => { 
-        if (!postInfo) {
-            res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
-            return;
-        }
-        res.json(postInfo);
+        .then(postInfo => { 
+            if (!postInfo) {
+                res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
+                return;
+            }
+            res.json(postInfo);
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
     });
 });
 
 // delete post
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(postInfo => {
-        if (!postInfo) {
-            res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again'});
-            return;
-        }
-        res.json(postInfo);
+        .then(postInfo => {
+            if (!postInfo) {
+                res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again'});
+                return;
+            }
+            res.json(postInfo);
     })
-    .catch(err => {
+        .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });

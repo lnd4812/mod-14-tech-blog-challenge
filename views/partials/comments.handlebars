@@ -2,5 +2,18 @@
 
     {{#each this}}
 
-    <section class="comment"></section>
+    <section class="comment">
+        
+        <div class="commenting">
+            {{user.username}} on {{format_date created_at}}
+        </div>
+
+        <div class="text">
+            {{comment}}
+        </div>
+
+    </section>
+    
+    {{/each}}
+
 </div>

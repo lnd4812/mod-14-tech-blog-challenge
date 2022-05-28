@@ -11,7 +11,7 @@ async function commentHandler(event) {
     ];
 
     if (comment) {
-        const response = await fetch('/api/commebnts', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({
                 post_id,

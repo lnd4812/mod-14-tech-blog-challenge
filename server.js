@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-    secret: "whatever goes here",
+    secret: "not sure what goes here",
     cookie: {},
     resave: false, 
     saveUnitialized: true,
@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers'));
+app.use(require('./controllers/'));
 
 app.use(session(sess));
 

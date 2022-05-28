@@ -1,9 +1,11 @@
 <article>
     <a href="/dashboard"> &larr; Return to Dashboard</a>
+    
     <h2>Edit</h2>
+    
     <form class="edit-post">
         <div>
-            <input name="post-title" type="text" value="'{{post.post_title}}" />
+            <input name="post-title" type="text" value="{{post.post_title}}" />
             <span>({{format_url post.post_link}})</span>
         </div>
         <div>
@@ -19,7 +21,7 @@
             <textarea name="comment-body"></textarea>
         </div>
         <div>
-            <button type="submit" class="btn comment-btn">Add Comment</button>
+            <button type="submit" class="btn comment-btn">Add a Comment</button>
         </div>
     </form>
 </article>

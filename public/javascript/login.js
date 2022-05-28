@@ -1,10 +1,10 @@
 // new users required to create an account in order to login
-async function createAccount(event) {
+async function createAccountHandler(event) {
     event.preventDefault();
 
-    const username = document.querySelector('#username-create').value.trim();
-    const email = document.querySelector('#email-create').value.trim();
-    const password = document.querySelector('#password-create').value.trim();
+    const username = document.querySelector('#create-username').value.trim();
+    const email = document.querySelector('#create-email').value.trim();
+    const password = document.querySelector('#create-password').value.trim();
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
@@ -14,7 +14,9 @@ async function createAccount(event) {
                 email,
                 password
             }),
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 
+                'Content-Type': 'application/json'
+            }
         })
         if (response.ok) {
             document.location.replace('/dashboard');
@@ -25,7 +27,7 @@ async function createAccount(event) {
 }
 
 // login for existing users
-async function accountLogin(event) {
+async function accountLoginHandler(event) {
     event.preventDefault();
 
     const email = document.querySelector('#email-login').value.trim();
@@ -38,7 +40,9 @@ async function accountLogin(event) {
                 email, 
                 password
             }),
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 
+                'Content-Type': 'application/json'
+            }
         });
         if (response.ok) {
             document.location.replace('/dashboard');
@@ -49,5 +53,5 @@ async function accountLogin(event) {
 }
 
 // event listeners for functions creating account for new users & logging in existing users
-document.querySelector('.create-account').addEventListener('submit', createAccount);
-document.querySelector('.login').addEventListener('submit', accountLogin);
+document.querySelector('.create-account').addEventListener('submit', createAccountHandler);
+document.querySelector('.login').addEventListener('submit', accountLoginHandler);

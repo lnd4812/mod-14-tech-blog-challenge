@@ -1,6 +1,6 @@
 // set up functionality to allow users to delete their own posts
 
-async function deletePost(event) {
+async function deletePostHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
@@ -16,4 +16,4 @@ async function deletePost(event) {
     }
 }
 
-document.querySelector('.delete-post').addEventListener('click', deletePost);
+document.querySelector('.delete-post').addEventListener('click', deletePostHandler);

@@ -1,6 +1,6 @@
 // functionality to enable users to edit their own posts
 
-async function editPost(event) {
+async function editPostHandler(event) {
     event.preventDefault();
 
     const post_title = document.querySelector('input[name="post-title"]').value.trim();
@@ -25,4 +25,4 @@ async function editPost(event) {
     }
 }
 
-document.querySelector('.edit-post').addEventListener('submit', editPost);
+document.querySelector('.edit-post').addEventListener('submit', editPostHandler);

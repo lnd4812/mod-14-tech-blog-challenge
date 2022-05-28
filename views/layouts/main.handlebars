@@ -3,16 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TechBlogBlock</title>
+        <title>TechBlogSpot</title>
         <link rel="stylesheet", href="/stylesheets/style.css">
     </head>
 
     <body>
         <div class="wrapper">
             <header>
-                <h1>TechBlogBlock</h1>
+                <h1>Your Ultimate Tech Blogspot</h1>
                 <nav>
+                    {{#if loggedIn}}
+                    <a href="/dashboard">Dashboard</a>
+                    <button id="logout">Logout</button>
+                    {{else}}
                     <a href="/login">Login</a>
+                    {{/if}}
                 </nav>
             </header>
         
@@ -23,9 +28,12 @@
             </main>
             
             <footer>
-
+                <a href="/">Terms of Use</a>
+                <a href="/">Contact us</a>
             </footer>
         </div>
+        {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
     </body>
     <footer>
 
