@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         ]
     })
     .then(postInfo => {
-        // sequelize to affect only needed property
+        // serialize to affect only needed property(ies)
         const posts = postInfo.map(post => post.get({ plain: true}));
         res.render('homepage', {
             posts,
