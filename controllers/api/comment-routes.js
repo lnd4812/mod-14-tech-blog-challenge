@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    // limit comments to only logged in users
     if (req.session) {
         Comment.create({
             comment: req.body.comment,

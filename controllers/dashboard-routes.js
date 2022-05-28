@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+// const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
@@ -28,17 +29,19 @@ router.get('/', (req, res) => {
             }   
         ]
     })
-        .then(postInfo => {
-        const posts = postInfo.map(post => post.get({ plain: true}));
+    .then(postInfo => {
+    const posts = postInfo.map(post => post.get({ plain: true}));
+    res.render('dashboard', { posts, loggedIn: true});
     })
-        .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
     });
 });
 
 router.get('/edit/:id', (req, res) => {
-    Post.findbyId(req.params.id, {
+    // find by primary key
+    Post.findbyPk(req.params.id, {
         attributes: [
             'id',
             'post_link',

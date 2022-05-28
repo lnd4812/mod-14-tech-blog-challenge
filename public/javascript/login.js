@@ -18,7 +18,7 @@ async function createAccount(event) {
         })
         if (response.ok) {
             document.location.replace('/dashboard');
-        }   else {
+        } else {
             alert(response.statusText);
         }
     }
@@ -36,7 +36,7 @@ async function accountLogin(event) {
             method: 'POST',
             body: JSON.stringify({
                 email, 
-                passowrd
+                password
             }),
             headers: { 'Content-Type': 'application/json'}
         });
