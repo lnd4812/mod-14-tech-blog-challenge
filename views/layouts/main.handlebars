@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TechBlogSpot</title>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
         <link rel="stylesheet", href="/stylesheets/style.css">
     </head>
 
     <body>
         <div class="wrapper">
             <header>
-                <h1>Your Ultimate Tech Blogspot</h1>
-                <nav>
+                <nav class="menu-items">
                     {{#if loggedIn}}
                     <a href="/dashboard">Dashboard</a>
                     <button id="logout">Logout</button>
@@ -19,6 +19,9 @@
                     <a href="/login">Login</a>
                     {{/if}}
                 </nav>
+                <div class="title-block">
+                    <h1>Your Ultimate Tech Blogspot</h1>
+                </div>
             </header>
         
             <main>
@@ -28,8 +31,10 @@
             </main>
             
             <footer>
-                <a href="/">Terms of Use</a><br>
-                <a href="/">Contact us</a>
+               <div class="blurb">
+                    <a href="/">Terms of Use</a>
+                    <a href="/">Contact us</a>
+                </div>
             </footer>
         </div>
         {{#if loggedIn}}
