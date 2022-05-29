@@ -1,4 +1,4 @@
-// new users required to create an account in order to login
+//new users required to create an account in order to login
 async function createAccountHandler(event) {
     event.preventDefault();
 
@@ -8,7 +8,7 @@ async function createAccountHandler(event) {
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 username,
                 email,
@@ -26,7 +26,7 @@ async function createAccountHandler(event) {
     }
 }
 
-// login for existing users
+//login for existing users
 async function accountLoginHandler(event) {
     event.preventDefault();
 
@@ -35,7 +35,7 @@ async function accountLoginHandler(event) {
 
     if (email && password) {
         const response = await fetch('/api/users/login', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 email, 
                 password
