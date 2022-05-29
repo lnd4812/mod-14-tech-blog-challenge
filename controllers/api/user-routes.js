@@ -73,12 +73,12 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     })
         .then(userInfo => {
             if (!userInfo) {
-                res.status(400).json({ message: "Email address not found; please check your entry and try again!"});
+                res.status(400).json({ message: "That username was not found; please check your entry and try again!"});
                 return;
         }
 
