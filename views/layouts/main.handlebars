@@ -13,14 +13,13 @@
             <header>
                 <div class="menu-items">
                     <nav>
+                        <a href="/">Home</a>
+                        <a href="/dashboard">Dashboard</a>
                         {{#if loggedIn}}
-                            <a href="/">Home</a>
-                            <a href="/dashboard">Dashboard</a>
                             <button class="btn logout-btn" id="logout">Logout</button>
                         {{else}}
-                            <a href="/">Home</a>
-                            <a href="/dashboard">Dashboard</a>
                             <a href="/login">Login</a>
+                            <button class="btn logout-btn" id="logout">Logout</button>
                         {{/if}}
                     </nav>
                 </div>

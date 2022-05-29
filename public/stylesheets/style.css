@@ -36,7 +36,7 @@
   }
 
   nav {
-    width: 200px;
+    width: 250px;
     display: flex;
     justify-content: space-around;
     color: var(--tertiary-color);
@@ -95,7 +95,7 @@
     font-weight: bold;
     transition: color .1s;
     margin-left: 2.5px;
-    margin-top: -31px;
+    margin-top: -32px;
   }
   
   .logout-btn:hover {
