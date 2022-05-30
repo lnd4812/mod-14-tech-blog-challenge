@@ -1,3 +1,5 @@
+// create new login credentials if not yet signed up
+
 async function createAccountHandler(event) {
     event.preventDefault();
 

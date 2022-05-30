@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
             'id',
             'post_link',
             'post_title',
+            'post-content',
             'created_at'
         ],
         // in date order
@@ -45,6 +46,7 @@ router.get('/:id', (req, res) => {
             'id',
             'post_link',
             'post_title',
+            'post-body',
             'created_at'
         ],
         include: [
@@ -80,6 +82,7 @@ router.post('/', withAuth, (req, res) => {
     Post.create({
         post_title: req.body.post_title,
         post_link: req.body.post_link,
+        post_content: req.body.post_content,
         user_id: req.session.user_id
     })
         .then(postInfo => res.json(postInfo))
@@ -95,7 +98,8 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
-            post_title: req.body.post_title
+            post_title: req.body.post_title,
+            post_content: req.body.post_content
         },
         { 
             where: {

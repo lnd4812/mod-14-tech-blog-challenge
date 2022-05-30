@@ -1,16 +1,16 @@
 <article class="post">
 
     <div class="post-title">
-
-        <a href="{{post_link}}" target="_blank">{{post_title}}</a>
+        <a href="/post">{{post_title}}</a>
         <span>({{format_url post_link}})</span>
-    
     </div>
-    
+
+    <div class="post-content">
+        <textarea>({{post_content}})</textarea>
+   </div>
+
     <div class="commenting">
-    
         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-    
     </div>
 
 </article>

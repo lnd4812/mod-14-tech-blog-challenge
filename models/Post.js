@@ -26,6 +26,11 @@ Post.init(
             }
         },
 
+        post_body: {
+            type: DataTypes.STRING(1234),
+            allowNull: true
+        },
+
         user_id: {
             type: DataTypes.INTEGER,
             references: {

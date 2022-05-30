@@ -1,8 +1,8 @@
 :root {
     --primary-color: rgb(11, 23, 49);
-    --secondary-color: rgb(201, 229, 238);
+    --secondary-color: white;
     --tertiary-color: rgb(159, 216, 243); 
-    --light-color: white;
+    --secondary-color: white;
 }
 
 * {
@@ -14,7 +14,6 @@
     padding: 0;
     margin: 0;
     font-family: 'Raleway', sans-serif;
-    
     background-color: var(--primary-color);
   }
   
@@ -65,7 +64,7 @@
     float: left;
     font-size: 1em;
     margin-bottom: 10px;
-    background-color:var(--light-color);
+    background-color:var(--secondary-color);
     border: 5px solid var(--tertiary-color);
     border-radius: 15px;
   }
@@ -103,6 +102,22 @@
     color: var(--tertiary-color);
   }
   
+  /* .logout-btn-idle {
+      background: var(--primary-color);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--primary-color);
+      margin-left: 2.5px;
+      margin-top: -32px;
+    }
+ 
+  .logout-btn-idle:hover {
+      background: var(--primary-color);
+      color: var(--primary-color);
+  } */
+
   .post-list {
     margin: 0;
     padding: 0;
@@ -111,8 +126,8 @@
   textarea, input {
     padding: .5%;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: var(--light-color);
+    border: 1px solid var(--secondary-color);
+    background-color: var(--secondary-color);
   }
   
   textarea:focus, input:focus {
@@ -137,6 +152,9 @@
     padding-bottom: 10px;
   }
   
+  .login {
+    margin-bottom: 10px;
+  }
   .wrapper {
     width: 100%;
     min-height: 100%;
@@ -151,12 +169,11 @@
     padding: 2% 4%;
     color: var(--tertiary-color);
   }
-  
-  
+    
   .post {
     margin-bottom: 2%;
     line-height: 150%;
-    border: 1px solid var(--light-color);
+    border: 1px solid var(--secondary-color);
   }
   
   .post .post-title span {
@@ -168,20 +185,27 @@
   }
   
   .post .post-title  {
-    background-color: var(--light-color);
+    background-color: var(--tertiary-color);
     color: var(--primary-color);
     padding-left: 5px;
-    
+  }
+
+  .post .post-link {
+    color: var(--primary-color);
+  }
+ 
+  .post .post-content textarea {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
   }
 
   ul {
     list-style: none;
   }
- 
- .post-link {
-    color: var(--tertiary-color);
-  }
-  
+
   .edit {
     display: block;
     margin: -1.5% 0 2% 0;
@@ -189,7 +213,8 @@
   
   .comment-section {
     margin-bottom: 5%;
-    border: 1px solid var(--light-color);
+    padding: 2%;
+    border: 1px solid var(--secondary-color);
   }
   
   .comment {
@@ -198,11 +223,12 @@
   }
   
   .comment:nth-child(odd) {
-    background-color: #fff5eb;
+    background-color: var(--secondary-color);
   }
   
   .comment .commenting {
     font-size: 90%;
+    margin-left: 5px;
     margin-bottom: .5%;
     opacity: .6;
   }
@@ -223,7 +249,7 @@
     font-size: 100%;
   } 
 
-  .blurb {
+  .common-links {
     width: 100px;
     height: 50px;
     display: flex;
