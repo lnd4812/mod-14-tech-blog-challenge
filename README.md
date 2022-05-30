@@ -8,9 +8,9 @@ Module-14 Tech Blog Challenge
 
 ## Description
 
-This program requires the development of a blogging site for technology and users of such.  The Homepage features all posts that have been created and saved on the site, with the ability to create, edit, delete or comment on a post from the site's dashboard being restricted only to those logged into the site.  A user may create a new account through a separate link and once that account has been created, the user is brought to the dashboard page.  Once logged out, that user may subsequently access the dashboard by logging in with the saved username and password.
+This program requires the development of a blogging site for technology and users of such. Various requirements for functionality and results are provided in the User Story for Module 14 and, once criteria have been met, the site is deployed to the internet via heroku.  
 
-Output is based on the acceptance criteria outlined in the Module 14 Assignment Overview [Module-13-assignment](https://courses.bootcampspot.com/courses/1181/assignments/23366?module_item_id=465235).
+Output is based on the acceptance criteria outlined in the Module 14 Assignment Overview [Module-14-assignment](https://courses.bootcampspot.com/courses/1181/assignments/23366?module_item_id=465235).
 
 An animated example of the expected layout of the blog is included in the Challenge outline.
 
@@ -27,9 +27,12 @@ An animated example of the expected layout of the blog is included in the Challe
 
 ## Installation
 
+* from back-end.
+* from heroku
+
 ## Usage
 
-This program.
+The site enables a user to view all posts on this blogging website and, once logged in, create their own posts. Homepage features all posts that have been created and saved on the site, with the ability to create, edit, delete or comment on a post from the site's dashboard being restricted only to those logged into the site.  A user may create a new account through a separate link and once that account has been created, the user is brought to the dashboard page.  Once logged out, that user may subsequently access the dashboard by logging in with the saved username and password.
 
 ## License
 
