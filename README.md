@@ -37,15 +37,17 @@ This application is covered under the MIT license.  [MIT license link](https://c
 
 ## Contributing
 
-Please visit [Contributor Covenant website](https://contributor-covenant.org) for guidance.
+Please visit [Contributor Covenant website](https://contributor-covenant.org) for guidance or reach out directly using the contact informtion below.
 
 ## Testing
 
-N/A once deployed
+Insomnia used for testing back-end. N/A once deployed.
 
 ## Credits
 
-The majority of the program coding is based on that provided in the Module 13 and 14 main lesson.  As the challenge and acceptance criteria are so similar to those lessons and much of the terminology is based on standard practicies, it was very difficult not to do so.  As usual, several visits to Stack Overflow [website](https://stackoverflow.com) provided some finetuning or helped to clarify certain items in the modules.
+* The majority of the program coding, other than that in the acceptance criteria that does not duplicate what the module 13 and 14 main lessons generate, is based on those lessons.  As the challenge and acceptance criteria are very similar to those lessons and a large percentage of the variables and other coding are based on standard practicies and naming conventions, it was somewhat challenging not to.  
+* Documentation for Sequelize [website](sequelize.org) and Connect-Session-Sequelize [website](github.com/mweibel/connect-session-sequelize).
+* As usual, several visits to Stack Overflow [website](https://stackoverflow.com) provided some finetuning or helped to clarify certain items in the modules.
 
 ## Questions?
 
@@ -61,7 +63,7 @@ My GitHub repository link for this project is via this [Link](https://github.com
 
 ## Application Heroku link
 
-The link to the application
+The link to the application [heroku link](https://mod-14-tech-blog-challenge.herokuapp.com/)
 
 ## Contact information
 
