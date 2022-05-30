@@ -28,7 +28,7 @@ Post.init(
 
         post_content: {
             type: DataTypes.STRING(1234),
-            allowNull: true
+            allowNull: false
         },
 
         user_id: {

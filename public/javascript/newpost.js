@@ -5,7 +5,7 @@ async function newPostHandler(event) {
 
     const post_title = document.querySelector('input[name="post-title"]').value.trim();
     const post_link = document.querySelector('input[name="post-link"]').value.trim();
-    const post_content = document.querySelector('input[name="post-body"]').value;
+    const post_content = document.querySelector('input[name="post-content"]').value;
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -20,10 +20,10 @@ async function newPostHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/blogpost');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.post-entry').addEventListener("submit", newPostHandler);
+document.querySelector('.createpost').addEventListener("submit", newPostHandler);
