@@ -8,11 +8,11 @@ Module-14 Tech Blog Challenge
 
 ## Description
 
-This program ...
+This program requires the development of a blogging site for technology and users of such.  The Homepage features all posts that have been created and saved on the site, with the ability to create, edit, delete or comment on a post from the site's dashboard being restricted only to those logged into the site.  A user may create a new account through a separate link and once that account has been created, the user is brought to the dashboard page.  Once logged out, that user may subsequently access the dashboard by logging in with the saved username and password.
 
 Output is based on the acceptance criteria outlined in the Module 14 Assignment Overview [Module-13-assignment](https://courses.bootcampspot.com/courses/1181/assignments/23366?module_item_id=465235).
 
-An example of the expected layout of the blog is included in the Challenge outline.
+An animated example of the expected layout of the blog is included in the Challenge outline.
 
 ![example](/public/images/14-mvc-homework-demo-01.gif)
 

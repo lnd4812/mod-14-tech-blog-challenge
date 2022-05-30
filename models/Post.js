@@ -26,7 +26,7 @@ Post.init(
             }
         },
 
-        post_body: {
+        post_content: {
             type: DataTypes.STRING(1234),
             allowNull: true
         },

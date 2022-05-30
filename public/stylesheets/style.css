@@ -184,7 +184,7 @@
     padding-left: 5px;
   }
   
-  .post .post-title  {
+  .post-title {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
     padding-left: 5px;

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             'id',
             'post_link',
             'post_title',
-            'post-content',
+            'post_content',
             'created_at'
         ],
         // in date order
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
             'id',
             'post_link',
             'post_title',
-            'post-body',
+            'post_content',
             'created_at'
         ],
         include: [
@@ -91,8 +91,6 @@ router.post('/', withAuth, (req, res) => {
             res.status(500).json(err);
     });
 });
-
-
 
 // update a post
 router.put('/:id', withAuth, (req, res) => {
