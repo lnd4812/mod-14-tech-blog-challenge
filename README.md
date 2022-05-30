@@ -49,7 +49,7 @@ Insomnia used for testing back-end. N/A once deployed.
 ## Credits
 
 * The majority of the program coding, other than that in the acceptance criteria that does not duplicate what the module 13 and 14 main lessons generate, is based on those lessons.  As the challenge and acceptance criteria are very similar to those lessons and a large percentage of the variables and other coding are based on standard practicies and naming conventions, it was somewhat challenging not to.  
-* Documentation for Sequelize [website](https://www.npmjs.com/package/sequelize) and Connect-Session-Sequelize [website](https://www.npmjs.com/package/connect-session-sequelize)
+* Documentation for Sequelize [npm page](https://www.npmjs.com/package/sequelize) and Connect-Session-Sequelize [npm page](https://www.npmjs.com/package/connect-session-sequelize)
 * As usual, several visits to Stack Overflow [website](https://stackoverflow.com) provided some finetuning or helped to clarify certain items in the modules.
 
 ## Questions?
@@ -58,7 +58,7 @@ If you have any questions, please see my contact details below:
 
 ## GitHub Username
 
-My GitHub Username is [linked at](github.com/lnd4812)
+My GitHub Username is [github.com/lnd4812](github.com/lnd4812)
 
 ## GitHub Repository
 
