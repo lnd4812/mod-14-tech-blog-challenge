@@ -20,7 +20,7 @@ async function newPostHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+       res.render('blogpost');
     } else {
         alert(response.statusText);
     }

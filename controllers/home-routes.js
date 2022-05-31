@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 
@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'post_link',
             'post_title',
+            'post_link',
+            'post_content',
             'created_at'
         ],
         include: [
@@ -49,8 +50,9 @@ router.get('/post/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_link',
             'post_title',
+            'post_link',
+            'post_content',
             'created_at'
         ],
         include: [
@@ -88,11 +90,10 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
-
-  res.render('login');
+res.render('login');
 });
 
 router.get('/createaccount', (req, res) => {

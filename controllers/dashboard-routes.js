@@ -45,8 +45,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
     Post.findbyPk(req.params.id, {
         attributes: [
             'id',
-            'post_link',
             'post_title',
+            'post_link',
             'post_content',
             'created_at'
         ],
