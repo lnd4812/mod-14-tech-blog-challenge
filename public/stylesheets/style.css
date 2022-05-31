@@ -1,6 +1,6 @@
 :root {
     --primary-color: rgb(11, 23, 49);
-    --secondary-color: rgb(167, 197, 211);
+    --secondary-color: rgb(187, 216, 228);
     --tertiary-color: rgb(159, 216, 243); 
     --light-color: white;
 }
@@ -221,12 +221,12 @@
     border: 1px solid var(--secondary-color);
   }
   
-  .comment {
+  .comment-part {
     padding: 1%;
     margin-bottom: 1%;
   }
   
-  .comment:nth-child(odd) {
+  .comment-part:nth-child(odd) {
     background-color: var(--secondary-color);
   }
   
@@ -234,7 +234,7 @@
     padding-left: 5px;
   }
 
-  .comment .commenting {
+  .comment-part .commenting {
     font-size: 90%;
     margin-bottom: .5%;
     opacity: .6;
@@ -244,6 +244,16 @@
     width: 300px;
   }
   
+  .dashboard-page-top {
+    margin-top: -10px;
+    margin-bottom: 25px;
+    font-size: 2em;
+  }
+
+  .current {
+    margin-top: 40px;
+  }
+
   .edit-post {
     margin-bottom: 5%;
   }

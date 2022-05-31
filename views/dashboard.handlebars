@@ -1,4 +1,6 @@
 <section>
+    <h1 class="dashboard-page-top">DASHBOARD</h1>
+
     <h2>Create Post</h2>
 
     <form class="post-entry">
@@ -19,7 +21,7 @@
 </section>
 
 {{#if posts.length}}
-<section>
+<section class="current">
     <h2>Current Posts</h2>
     <ul>
         {{#each posts as |post|}}

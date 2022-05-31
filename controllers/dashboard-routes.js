@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
+// to display all of a user's posts on their dashboard page - using session id to filter posts
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -68,7 +69,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         .then(postInfo => {
             if (postInfo) {
                 const post = postInfo.get({ plain: true});
-                res.render('editpost', { post, loggedIn: true});
+                res.render('edit', { post, loggedIn: true});
             } else {
                 res.status(404).end();
             }

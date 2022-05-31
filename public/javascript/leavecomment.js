@@ -26,6 +26,8 @@ async function commentHandler(event) {
             alert(response.statusText);
         }
     }
+
+    console.log(comment, post_id);
 }
 
 document.querySelector('.comment-section').addEventListener('submit', commentHandler);

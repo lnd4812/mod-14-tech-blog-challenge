@@ -1,7 +1,5 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-
 
 // retrieve all blog posts
 router.get('/', (req, res) => {
@@ -31,10 +29,9 @@ router.get('/', (req, res) => {
     .then(postInfo => {
         // serialize to affect only needed property(ies)
         const posts = postInfo.map(post => post.get({ plain: true}));
-        res.render('homepage', {
-            posts,
-            loggedIn: req.session.loggedIn
-        });
+        res.render('homepage', { 
+            posts, 
+            loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);
@@ -77,10 +74,7 @@ router.get('/post/:id', (req, res) => {
             }
             const post = postInfo.get({ plain: true });
             
-            res.render('blogpost', {
-                post,
-                loggedIn: req.session.loggedIn
-            });
+            res.render('blogpost', { post });
         })
         .catch(err => {
             console.log(err);

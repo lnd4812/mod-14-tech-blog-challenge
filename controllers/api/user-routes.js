@@ -81,9 +81,9 @@ router.post('/login', (req, res) => {
                 return;
         }
 
-        const okayPassword = userInfo.checkPassword(req.body.password);
+        const passwordOkay = userInfo.checkPassword(req.body.password);
 
-        if (!okayPassword) {
+        if (!passwordOkay) {
             res.status(400).json({ message: 'Invalid password.  Please check your entry and try again.'});
             return;
         }
@@ -93,7 +93,7 @@ router.post('/login', (req, res) => {
             req.session.username = userInfo.username;
             req.session.loggedIn = true;
 
-            res.json({ user: userInfo, message: "Logged in"});
+            res.json({ user: userInfo });
         });
     })
 });

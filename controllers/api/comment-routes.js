@@ -15,14 +15,20 @@ router.post('/', withAuth, (req, res) => {
     // limit comments to only logged in users
     if (req.session) {
         Comment.create({
-            comment: req.body.comment,
+            comment: reqbody.comment,
             post_id: req.body.post_id,
             user_id: req.session.user_id
         })
-        .then(commentInfo => res.json(commentInfo))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+            .then(commentInfo => {
+                
+                const comment = commentInfo.get({ plain: true }); 
+                
+                res.render('blogpost', { comment })
+            
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
         });
     }
 });
