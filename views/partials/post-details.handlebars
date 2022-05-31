@@ -1,12 +1,14 @@
 <article class="post">
 
-    <div class="post-title">
-        <a href="/newpost">{{post_title}}</a>
+    <div class="title-section">
+        <div class="post-title">
+            <a href="/">{{post_title}}</a>
+        </div>
         <div class="posted-by">Posted by {{user.username}} on {{format_date created_at}}</div>
     </div>
 
     <div class="post-content">
-        <textarea>{{post.post_content}}</textarea>
+        <textarea>{{post_content}}</textarea>
    </div>
 
     <div class="commenting">

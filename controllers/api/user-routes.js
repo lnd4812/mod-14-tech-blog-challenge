@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
-
-// api routes
+// api end points
 router.get('/', (req , res) => {
    User.findAll({
        attributes: { exclude: ['password']}
@@ -82,9 +81,9 @@ router.post('/login', (req, res) => {
                 return;
         }
 
-        const validPassword = userInfo.checkPassword(req.body.password);
+        const okayPassword = userInfo.checkPassword(req.body.password);
 
-        if (!validPassword) {
+        if (!okayPassword) {
             res.status(400).json({ message: 'Invalid password.  Please check your entry and try again.'});
             return;
         }
@@ -98,7 +97,6 @@ router.post('/login', (req, res) => {
         });
     })
 });
-
 
 router.post('/logout', (req, res) => { 
     if (req.session.loggedIn) {
@@ -114,13 +112,13 @@ router.post('/logout', (req, res) => {
 // update user info
 router.put('/:id', (req, res) => {
     User.update(req.body, {
-        individualHooks: true, // only parameter being changed is passed through function
+        individualHooks: true, // only the parameter needing change is passed through function
         where: {
             id: req.params.id  
         }
     })
         .then(userInfo => {
-            if (!userInfo[0]) {
+            if (!userInfo) {
                 res.status(404).json({ message: 'That id could not be found in our database.  Please check your entry and try again.'});
                 return;
             }

@@ -69,7 +69,7 @@
     border-radius: 15px;
   }
 
-  button {
+  button  {
     background-color: var(--tertiary-color);
     border: 0;
     padding: 1%;
@@ -82,7 +82,7 @@
   button:hover {
     background-color: var(--secondary-color);
   }
-  
+
   .logout-btn {
     background: var(--primary-color);
     border: none;
@@ -102,22 +102,6 @@
     color: var(--tertiary-color);
   }
   
-  /* .logout-btn-idle {
-      background: var(--primary-color);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      text-decoration: none;
-      color: var(--primary-color);
-      margin-left: 2.5px;
-      margin-top: -32px;
-    }
- 
-  .logout-btn-idle:hover {
-      background: var(--primary-color);
-      color: var(--primary-color);
-  } */
-
   .post-list {
     margin: 0;
     padding: 0;
@@ -140,6 +124,11 @@
     min-height: 100px;
   }
   
+  .post .post-content textarea {
+    min-width: 100%;
+    min-height: 100px;
+  }
+
   form > div {
     margin-bottom: 2%;
   }
@@ -155,6 +144,7 @@
   .login {
     margin-bottom: 10px;
   }
+
   .wrapper {
     width: 100%;
     min-height: 100%;
@@ -176,6 +166,11 @@
     border: 1px solid var(--secondary-color);
   }
   
+  .post .title-section {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .post .post-title span {
     font-style: italic;
     width: 100%;
@@ -184,17 +179,21 @@
     padding-left: 5px;
   }
   
-  .post-title {
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
+  .post .post-title {
+    background-color: var(--primary-color);
+    color: var(--tertiart-color);
     padding-left: 5px;
+  }
+
+  .post .posted-by {
+    padding-right: 5px;
   }
 
   .post .post-link {
     color: var(--primary-color);
   }
  
-  .post .post-content textarea {
+  .post .post-content {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -226,9 +225,12 @@
     background-color: var(--secondary-color);
   }
   
+  .post .commenting {
+    padding-left: 5px;
+  }
+
   .comment .commenting {
     font-size: 90%;
-    margin-left: 5px;
     margin-bottom: .5%;
     opacity: .6;
   }

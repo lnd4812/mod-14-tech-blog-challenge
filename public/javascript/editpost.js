@@ -1,4 +1,4 @@
-// functionality to enable users to edit their own posts
+// functionality to enable users to edit and/or delete their own posts
 
 async function editPostHandler(event) {
     event.preventDefault();

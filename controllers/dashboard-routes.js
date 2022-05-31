@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
@@ -68,7 +67,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         .then(postInfo => {
             if (postInfo) {
                 const post = postInfo.get({ plain: true});
-                res.render('editpost', { posts, loggedIn: true});
+                res.render('editpost', { post, loggedIn: true});
             } else {
                 res.status(404).end();
             }

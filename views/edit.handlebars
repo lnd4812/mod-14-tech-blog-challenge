@@ -6,25 +6,27 @@
     <form class="edit-post">
         <div>
             <input name="post-title" type="text" value="{{post.post_title}}" />
-            <span>({{format_url post.post_link}})</span>
+            {{!-- <span>({{format_url post.post_link}})</span> --}}
         </div>
         <div>
          <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}} on {{format_date post.created_at}}</a>   
         </div>
 
         <button type="submit">Save</button>
-        <button type="submit">Delete</button>
-    </form>
-
-    <form class="comment-section">
-        <div>
-            <textarea name="comment-body"></textarea>
-        </div>
-        <div>
-            <button type="submit">Add a Comment</button>
-        </div>
+        <button type="submit" class="delete-btn">Delete</button>
     </form>
 </article>
+
+<form class="comment-section">
+    <div>
+        <textarea name="comment-statement"></textarea>
+    </div>
+    <div>
+        <button type="submit">Add a Comment</button>
+    </div>
+</form>
+
+{{ comments post.comments}}
 
 <script src="/javascript/editpost.js"></script>
 <script src="/javascript/deletepost"></script>

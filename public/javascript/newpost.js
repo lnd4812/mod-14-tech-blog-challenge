@@ -20,10 +20,10 @@ async function newPostHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/blogpost');
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.createpost').addEventListener("submit", newPostHandler);
+document.querySelector('.post-entry').addEventListener("submit", newPostHandler);
