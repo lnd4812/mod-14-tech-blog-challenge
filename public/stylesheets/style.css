@@ -1,8 +1,8 @@
 :root {
     --primary-color: rgb(11, 23, 49);
-    --secondary-color: white;
+    --secondary-color: rgb(167, 197, 211);
     --tertiary-color: rgb(159, 216, 243); 
-    --secondary-color: white;
+    --light-color: white;
 }
 
 * {
@@ -18,7 +18,7 @@
   }
   
   header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--light-color);
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -109,8 +109,10 @@
   
   textarea, input {
     padding: .5%;
+    font-size: 13px;
+    color: var(--primary-color);
     border-radius: 5px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--light-color);
     background-color: var(--secondary-color);
   }
   
@@ -127,6 +129,9 @@
   .post .post-content textarea {
     min-width: 100%;
     min-height: 100px;
+    font-size: 13px;
+    color: var(--primary-color);
+    background-color:var(--secondary-color);
   }
 
   form > div {
@@ -181,7 +186,7 @@
   
   .post .post-title {
     background-color: var(--primary-color);
-    color: var(--tertiart-color);
+    color: var(--tertiary-color);
     padding-left: 5px;
   }
 

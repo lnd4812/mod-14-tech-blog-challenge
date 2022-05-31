@@ -118,7 +118,7 @@ router.put('/:id', (req, res) => {
         }
     })
         .then(userInfo => {
-            if (!userInfo) {
+            if (!userInfo[0]) {
                 res.status(404).json({ message: 'That id could not be found in our database.  Please check your entry and try again.'});
                 return;
             }
