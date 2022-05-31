@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
             'id',
             'post_link',
             'post_title',
-            'post_content',
             'created_at'
         ],
         include: [
@@ -43,7 +42,7 @@ router.get('/', (req, res) => {
 });
 
 // retrieve one blog post
-router.get('/:id', (req, res) => {
+router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -52,7 +51,6 @@ router.get('/:id', (req, res) => {
             'id',
             'post_link',
             'post_title',
-            'post_content',
             'created_at'
         ],
         include: [
