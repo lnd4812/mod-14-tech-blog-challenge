@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
@@ -43,7 +42,7 @@ router.get('/', withAuth, (req, res) => {
 
 router.get('/edit/:id', withAuth, (req, res) => {
     // find by primary key limits get to specific id
-    Post.findbyPk(req.params.id, {
+     Post.findbyPk(req.params.id, {
         attributes: [
             'id',
             'post_title',

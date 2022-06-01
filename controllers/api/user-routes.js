@@ -54,6 +54,7 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
         .then(userInfo => {
+            
             req.session.save(() => {
                 req.session.user_id = userInfo.id;
                 req.session.username = userInfo.username;
@@ -87,7 +88,7 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Invalid password.  Please check your entry and try again.'});
             return;
         }
-
+       
         req.session.save(() => {
             req.session.user_id = userInfo.id;
             req.session.username = userInfo.username;

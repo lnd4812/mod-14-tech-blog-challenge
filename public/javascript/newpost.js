@@ -1,13 +1,13 @@
 // set up functionality to add a new post
 
-function newPostHandler(event) {
+async function newPostHandler(event) {
     event.preventDefault();
 
    const post_title = document.querySelector('input[name="post-title"]').value.trim();
    const post_link = document.querySelector('input[name="post-link"]').value.trim();
-//    const post_content = document.querySelector('input[name="post-content"]').value.toString();
+//    const post_content = document.querySelector('input[name="post-content"]').value();
           
-    const response = fetch(`/api/posts`, {
+    const response = await fetch(`/api/posts/`, {
         method: 'POST',
         body: JSON.stringify({
             post_title,

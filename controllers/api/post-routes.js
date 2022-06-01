@@ -49,20 +49,20 @@ router.get('/:id', (req, res) => {
             'post_content',
             'created_at'
         ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
-                include: {   
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }    
-        ]
+        // include: [
+        //     {
+        //         model: Comment,
+        //         attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
+        //         include: {   
+        //             model: User,
+        //             attributes: ['username']
+        //         }
+        //     },
+        //     {
+        //         model: User,
+        //         attributes: ['username']
+        //     }    
+        // ]
     })
         .then(postInfo => {
             if (!postInfo) {
