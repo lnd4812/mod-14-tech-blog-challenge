@@ -56,13 +56,14 @@
   }
   
   .title-block {
-    width: 35%;
+    width: 40%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     float: left;
     font-size: 1em;
+    padding: 2px;
     margin-bottom: 10px;
     background-color:var(--secondary-color);
     border: 5px solid var(--tertiary-color);
@@ -80,7 +81,6 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
   }
 
   button  {
