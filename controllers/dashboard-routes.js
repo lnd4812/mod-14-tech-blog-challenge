@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
@@ -42,7 +42,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    // find by primary key 
+    // find by primary key limits get to specific id
     Post.findbyPk(req.params.id, {
         attributes: [
             'id',
@@ -60,23 +60,23 @@ router.get('/edit/:id', withAuth, (req, res) => {
                     attributes: ['username']
                 }
             },
-            {
+            {   
                 model: User,
                 attributes: ['username']
             }
         ]
     })
-        .then(postInfo => {
-            if (postInfo) {
-                const post = postInfo.get({ plain: true});
-                res.render('edit', { post, loggedIn: true});
-            } else {
-                res.status(404).end();
-            }
-    })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+    .then(postInfo => {
+        if(postInfo) {
+        
+        const post = postInfo.get({ plain: true});
+        res.render('edit', { post, loggedIn: true});
+    } else {
+        res.status(404).end();
+    }
+})
+    .catch(err => {
+        res.status(500).json(err);
     });
 });
 

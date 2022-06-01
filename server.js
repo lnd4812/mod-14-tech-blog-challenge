@@ -15,8 +15,9 @@ const sess = {
     resave: false, 
     saveUnitialized: true,
     store: new SequelizeStore({
-        db: sequelize
-    })
+        db: sequelize,
+        expiration: 60 * 60 * 1000  // set session to log out after 60 minutes of inactivity
+    }),
 };
 
 app.use(session(sess));

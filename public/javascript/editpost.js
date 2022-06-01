@@ -1,6 +1,6 @@
 // functionality to enable users to edit and/or delete their own posts
 
-async function editPostHandler(event) {
+function editPostHandler(event) {
     event.preventDefault();
 
     const post_title = document.querySelector('input[name="post-title"]').value.trim();
@@ -8,7 +8,7 @@ async function editPostHandler(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/') - 1
         ];
-    const response = await fetch(`/api/post/${id}`, {
+    const response = fetch(`/api/post/${id}`, {
         method: 'PUT',
             body: JSON.stringify({
                 post_title
