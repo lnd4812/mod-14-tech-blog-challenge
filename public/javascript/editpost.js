@@ -19,7 +19,7 @@ function editPostHandler(event) {
     });
     
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('edit');
     } else {
         alert(response.statusText);
     }

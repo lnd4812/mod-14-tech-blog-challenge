@@ -2,7 +2,7 @@
 async function commentHandler(event) {
     event.preventDefault();
 
-    const comment = document.querySelector('.commenttext').value.trim();
+    const comment = document.querySelector('textarea[name="comment-statement"]').value.trim();
 
     // split url into an array and grab post_id (last item in array; i.e. "length-1")
     const post_id = window.location.toString().split('/')[
