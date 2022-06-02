@@ -8,7 +8,7 @@ function editPostHandler(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/') - 1
         ];
-    const response = fetch(`/api/post/${id}`, {
+    const response = fetch(`/api/posts/${id}`, {
         method: 'PUT',
             body: JSON.stringify({
                 post_title

@@ -42,7 +42,7 @@ router.get('/', withAuth, (req, res) => {
 
 router.get('/edit/:id', withAuth, (req, res) => {
     // find by primary key limits get to specific id
-     Post.findbyPk(req.params.id, {
+     Post.findOne(req.params.id, {
         attributes: [
             'id',
             'post_title',
@@ -67,12 +67,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
     })
     .then(postInfo => {
         if(postInfo) {
-        
-        const post = postInfo.get({ plain: true});
-        res.render('edit', { post, loggedIn: true});
-    } else {
-        res.status(404).end();
-    }
+            const post = postInfo.get({ plain: true});
+            res.render('edit', { post, loggedIn: true});
+        } else {
+            res.status(404).end();
+        }
 })
     .catch(err => {
         res.status(500).json(err);

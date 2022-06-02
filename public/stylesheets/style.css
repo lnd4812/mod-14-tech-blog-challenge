@@ -289,6 +289,7 @@
     height: 50px;
     display: flex;
     flex-wrap: wrap;
+    font-size: 12px;
     padding: 5px;
 
   }
