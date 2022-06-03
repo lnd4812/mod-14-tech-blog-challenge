@@ -2,7 +2,7 @@
 async function commentHandler(event) {
     event.preventDefault();
 
-    const comment = document.querySelector('textarea[name="comment-statement"]').value.trim();
+    const comment = document.querySelector('#comment-statement').value;
 
     // split url into an array and grab post_id (last item in array; i.e. "length-1")
     const post_id = window.location.toString().split('/')[
@@ -26,8 +26,6 @@ async function commentHandler(event) {
             alert(response.statusText);
         }
     }
+ }
 
-    console.log(comment, post_id);
-}
-
-document.querySelector('.comment-section').addEventListener('submit', commentHandler);
+document.querySelector('.add-comment').addEventListener('submit', commentHandler);

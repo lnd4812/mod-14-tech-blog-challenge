@@ -79,7 +79,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         .catch(err => {
             res.status(500).json(err);
     });
-    
 });
 
 module.exports = router;

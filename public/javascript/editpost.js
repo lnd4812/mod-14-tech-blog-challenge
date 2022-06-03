@@ -4,14 +4,16 @@ function editPostHandler(event) {
     event.preventDefault();
 
     const post_title = document.querySelector('input[name="post-title"]').value.trim();
+    const post_content = document.querySelector('#post-content').value;
     // extract id from url array
     const id = window.location.toString().split('/')[
-        window.location.toString().split('/') - 1
+        window.location.toString().split('/')
         ];
     const response = fetch(`/api/posts/${id}`, {
         method: 'PUT',
             body: JSON.stringify({
-                post_title
+                post_title,
+                post_content
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -19,10 +21,10 @@ function editPostHandler(event) {
     });
     
     if (response.ok) {
-        document.location.replace('edit');
+        document.location.replace('/dashboard/');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.edit-post').addEventListener('submit', editPostHandler);
+document.querySelector('.save-edit').addEventListener('submit', editPostHandler);
