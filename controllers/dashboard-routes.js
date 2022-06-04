@@ -40,7 +40,8 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
+     if (req.session) {
     // find by primary key limits get to specific id
     Post.findOne({
         where: {
@@ -74,11 +75,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 return;
             }
                 const post = postInfo.get({ plain: true });
-                res.render('edit', { post, loggedIn: true});
+                res.render('blogpost', { post, loggedIn: true});
         })
         .catch(err => {
             res.status(500).json(err);
     });
+  }
 });
 
 module.exports = router;

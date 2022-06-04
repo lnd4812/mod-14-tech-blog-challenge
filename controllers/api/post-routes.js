@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
 
 // retrieve a specific post by id
 router.get('/:id', (req, res) => {
+    if (req.session) {
     Post.findOne({
         where: {
             id: req.params.id
@@ -75,6 +76,7 @@ router.get('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
     });
+   }
 });
 
 // create a new post
