@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 // prevent username/password from being visibly passed to GitHub
 require('dotenv').config();
+console.log(process.env.JAWSDB_URL?'found url':'no url found');
 
 // connection to database
 const sequelize = process.env.JAWSDB_URL
