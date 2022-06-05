@@ -21,8 +21,8 @@ router.post('/', withAuth, (req, res) => {
         .then(commentInfo => res.json(commentInfo))         
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
-    });
+           res.status(500).json(err);
+        });
 });
 
 router.delete('/:id', withAuth, (req, res) => {

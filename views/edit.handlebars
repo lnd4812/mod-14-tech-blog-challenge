@@ -4,10 +4,9 @@
     <form class="edit-post">
         <div>
             <label for"post-title">Edit Post Title</label>
-            <input type="text" name="post-title" value="{{post_title}}"/>
-            <br><br>
+            <input name="post-title" type="text" value="{{post.post_title}}" /><br><br>
             <label for"post-content">Edit Post Content</label>
-            <textarea id="post-content">{{post_content}}</textarea>
+            <textarea id="post-content">{{post.post_content}}</textarea>
         </div>
         
         <button type="submit" class="save-edit">Save</button>

@@ -115,12 +115,12 @@ router.put('/edit/:id', withAuth, (req, res) => {
                 ],
             }
         )
-            .then(response => { 
-                if (!response) {
+            .then(postInfo => { 
+                if (!postInfo) {
                     res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
                     return;
                 }
-                res.json(response);
+                res.json(postInfo);
         })
             .catch(err => {
                 console.log(err);
