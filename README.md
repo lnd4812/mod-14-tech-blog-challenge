@@ -59,7 +59,7 @@ If you have any questions, please see my contact details below:
 
 ## GitHub Username
 
-My GitHub Username is [github.com/lnd4812].  
+My GitHub Username is [github.com/lnd4812](github.com/lnd4812).  
 
 ## GitHub Repository
 
@@ -67,7 +67,7 @@ My GitHub repository link for this project is via this [Link](https://github.com
 
 ## Application Heroku link
 
-The link to the application [heroku link https://mod-14-tech-blog-challenge.herokuapp.com/](https://mod-14-tech-blog-challenge.herokuapp.com/)
+The link to the application on heroku [https://mod-14-tech-blog-challenge.herokuapp.com/](https://mod-14-tech-blog-challenge.herokuapp.com/)
 
 ## Contact information
 

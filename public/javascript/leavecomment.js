@@ -2,7 +2,7 @@
 async function commentHandler(event) {
     event.preventDefault();
 
-    const comment = document.querySelector('#comment-statement').value;
+    const comment = document.querySelector('textarea[name="comment-statement"]').value;
 
     // split url into an array and grab post_id (last item in array; i.e. "length-1")
     const post_id = window.location.toString().split('/')[
@@ -10,7 +10,7 @@ async function commentHandler(event) {
     ];
 
     if (comment) {
-        const response = await fetch('/api/blogpost/comments/:id', {
+        const response = await fetch('/api/post/comments', {
             method: 'POST',
             body: JSON.stringify({
                 post_id,

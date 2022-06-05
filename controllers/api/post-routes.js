@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
 
 // retrieve a specific post by id
 router.get('/:id', (req, res) => {
+    if (req.session) {
     Post.findOne({
         where: {
             id: req.params.id
@@ -69,13 +70,15 @@ router.get('/:id', (req, res) => {
                 res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
                 return;
             }
-            // res.render(postInfo);
-            const post = postInfo.get({ plain: true });
-            res.render('blogpost', { post, loggedIn: true});
+            res.render(postInfo);
+            // const post = postInfo.get({ plain: true });
+            // res.render('post', { post, loggedIn: true});
+
         }).catch(err => {
             console.log(err);
             res.status(500).json(err);
     });
+   }
 });
 
 // create a new post

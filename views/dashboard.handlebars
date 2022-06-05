@@ -25,10 +25,10 @@
     <h2>Current Posts</h2>
     <ul>
         {{#each posts as |post|}}
-        <li>
-            {{> post-details post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit">Edit Post</a>
-        </li>
+            <li>
+                {{> post-details post}}
+                    <a href="/dashboard/edit/{{post.id}}" class="edit">Edit Post</a>
+            </li>
         {{/each}}
     </ul>
 </section>

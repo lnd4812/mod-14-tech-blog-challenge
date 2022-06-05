@@ -19,7 +19,7 @@ async function accountLoginHandler(event) {
         if (response.ok) {
             document.location.replace('/dashboard');
         }   else {
-                alert('incorrect password');
+                alert('invalid password. If not yet signed up, please create new account to log in');
         }
     }
 }
