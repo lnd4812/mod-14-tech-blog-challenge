@@ -239,12 +239,12 @@
     border: 1px solid var(--secondary-color);
   }
   
-  .comment-part {
+  .comment {
     padding: 1%;
     margin-bottom: 1%;
   }
   
-  .comment-part:nth-child(odd) {
+  .comment:nth-child(odd) {
     background-color: var(--secondary-color);
   }
   
@@ -252,7 +252,7 @@
     padding-left: 5px;
   }
 
-  .comment-part .commenting {
+  .comment .commenting {
     font-size: 90%;
     margin-bottom: .5%;
     opacity: .6;

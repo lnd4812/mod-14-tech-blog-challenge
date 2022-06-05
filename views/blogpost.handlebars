@@ -1,19 +1,21 @@
-{{> post-details post}}
+ <article>
+    <a href="/dashboard"> &larr; Return to Dashboard</a><br><br>
 
-{{#if loggedIn}}
-<form class="comment-section">
-    <div>
-        <textarea id="comment-statement"></textarea>
-    </div>
-    <div>
-        <button type="submit">Add a comment<button>
-    </div>
-</form>
-{{/if}}
+    {{> post-details post}}
 
-{{> comments post.comments}}
+    <form class="comment-section">
+        <div>
+            <textarea id="comment-statement"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="add-comment">Add a comment</button>
+        </div>
+    </form>
+
+    {{> comments post.comments}}
+    
+</article>
 
 {{#if loggedIn}}
 <script src="/javascript/leavecomment.js"></script>
 {{/if}}
-

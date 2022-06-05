@@ -11,12 +11,12 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
     secret: "mystery spot",
-    cookie: {},
+    cookie: {maxAge: 1800000},
     resave: false, 
     saveUnitialized: true,
     store: new SequelizeStore({
         db: sequelize,
-        expiration: 60 * 60 * 1000  // set session to log out after 60 minutes of inactivity
+        expiration: 15 * 60 * 1000  // set session to log out after 15 minutes of inactivity
     }),
 };
 

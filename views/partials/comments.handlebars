@@ -1,14 +1,14 @@
-<div class="comments-partial">
+<div class="comments">
 
     {{#each this}}
 
-    <section class="comment-part">
+    <section class="comment">
         
         <div class="commenting">
             {{user.username}} on {{format_date created_at}}
         </div>
 
-        <div class="text">{{comment}}</div>
+        <textarea class="comment-statement">{{comment}}</textarea>
 
     </section>
     

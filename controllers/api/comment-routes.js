@@ -12,19 +12,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    // limit comments to only logged in users
-    if (req.session) {
-        Comment.create({
-            comment: req.body.comment,
-            post_id: req.body.post_id,
-            user_id: req.session.user_id
-        })
-            .then(commentInfo => res.json(commentInfo))         
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-        });
-    }
+  
+    Comment.create({
+        comment: req.body.comment,
+        post_id: req.body.post_id,
+        user_id: req.session.user_id
+    })
+        .then(commentInfo => res.json(commentInfo))         
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+    });
 });
 
 router.delete('/:id', withAuth, (req, res) => {

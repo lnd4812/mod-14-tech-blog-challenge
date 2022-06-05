@@ -4,6 +4,7 @@ const { Post, User, Comment } = require('../models');
 
 // to display all of a user's posts on their dashboard page - using session id to filter posts
 router.get('/', withAuth, (req, res) => {
+    if (req.session) {
     Post.findAll({
         where: {
         user_id: req.session.user_id
@@ -38,9 +39,10 @@ router.get('/', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
     });
+  }
 });
 
-router.get('/:id', withAuth, (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
      if (req.session) {
     // find by primary key limits get to specific id
     Post.findOne({
@@ -75,7 +77,7 @@ router.get('/:id', withAuth, (req, res) => {
                 return;
             }
                 const post = postInfo.get({ plain: true });
-                res.render('blogpost', { post, loggedIn: true});
+                res.render('edit', { post, loggedIn: true});
         })
         .catch(err => {
             res.status(500).json(err);
