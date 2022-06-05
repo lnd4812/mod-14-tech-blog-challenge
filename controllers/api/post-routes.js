@@ -38,7 +38,6 @@ router.get('/', (req, res) => {
 
 // retrieve a specific post by id
 router.get('/:id', (req, res) => {
-    // if (req.session) {
     Post.findOne({
         where: {
             id: req.params.id
@@ -70,18 +69,18 @@ router.get('/:id', (req, res) => {
                 res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
                 return;
             }
-            res.json(postInfo);
-    })
-        .catch(err => {
+            // res.render(postInfo);
+            const post = postInfo.get({ plain: true });
+            res.render('blogpost', { post, loggedIn: true});
+        }).catch(err => {
             console.log(err);
             res.status(500).json(err);
     });
-//    }
 });
 
 // create a new post
 router.post('/', withAuth, (req, res) => {
-    // if (req.session) {
+    if (req.session.user_id) {
         Post.create({
             post_title: req.body.post_title,
             post_link: req.body.post_link,
@@ -93,12 +92,12 @@ router.post('/', withAuth, (req, res) => {
                 console.log(err);
                 res.status(500).json(err);
         });
-    // }
+    }
 });
 
 // update a post
 router.put('/edit/:id', withAuth, (req, res) => {
-    // if (req.session) {
+    if (req.session.user_id) {
         Post.update(
             {
                 post_title: req.body.post_title,
@@ -120,12 +119,12 @@ router.put('/edit/:id', withAuth, (req, res) => {
                 console.log(err);
                 res.status(500).json(err);
             });
-    // }
+    }
 });
 
 // delete post
 router.delete('/:id', withAuth, (req, res) => {
-    // if (req.session) {
+    if (req.session.user_id) {
         Post.destroy({
             where: {
                 id: req.params.id
@@ -142,7 +141,7 @@ router.delete('/:id', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-    // }
+    }
 });
 
 module.exports = router;

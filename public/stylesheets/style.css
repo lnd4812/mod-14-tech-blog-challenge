@@ -258,6 +258,10 @@
     opacity: .6;
   }
   
+  .comment .comment-statement {
+    color: var(--primary-color);
+  }
+
   .post-entry input {
     width: 300px;
   }
