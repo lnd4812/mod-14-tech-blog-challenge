@@ -74,7 +74,10 @@ router.get('/post/:id', (req, res) => {
             }
             const post = postInfo.get({ plain: true });
             
-            res.render('blogpost', { post });
+            res.render('blogpost', { 
+                post, 
+                loggedIn: req.session.loggedIn 
+            });
         })
         .catch(err => {
             console.log(err);
@@ -84,6 +87,7 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.user_id) {
+    loggedIn = true;  
     res.redirect('/dashboard');
     return;
   }
