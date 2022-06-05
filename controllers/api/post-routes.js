@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 
 // retrieve a specific post by id
 router.get('/:id', (req, res) => {
-    if (req.session) {
+    // if (req.session) {
     Post.findOne({
         where: {
             id: req.params.id
@@ -76,12 +76,12 @@ router.get('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
     });
-   }
+//    }
 });
 
 // create a new post
 router.post('/', withAuth, (req, res) => {
-    if (req.session) {
+    // if (req.session) {
         Post.create({
             post_title: req.body.post_title,
             post_link: req.body.post_link,
@@ -93,12 +93,12 @@ router.post('/', withAuth, (req, res) => {
                 console.log(err);
                 res.status(500).json(err);
         });
-    }
+    // }
 });
 
 // update a post
 router.put('/edit/:id', withAuth, (req, res) => {
-    if (req.session) {
+    // if (req.session) {
         Post.update(
             {
                 post_title: req.body.post_title,
@@ -108,30 +108,24 @@ router.put('/edit/:id', withAuth, (req, res) => {
                 where: {
                     id: req.params.id
                 },
-                attributes: [
-                    'id',
-                    'post_title',
-                    'post_content'
-                ],
-            }
-        )
+            })
             .then(postInfo => { 
                 if (!postInfo) {
                     res.status(404).json({ message: 'There is no post with that id.  Please check your entry and try again.'});
                     return;
                 }
                 res.json(postInfo);
-        })
+            })
             .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
-        });
-    }
+            });
+    // }
 });
 
 // delete post
 router.delete('/:id', withAuth, (req, res) => {
-    if (req.session) {
+    // if (req.session) {
         Post.destroy({
             where: {
                 id: req.params.id
@@ -148,7 +142,7 @@ router.delete('/:id', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-    }
+    // }
 });
 
 module.exports = router;

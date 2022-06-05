@@ -15,9 +15,8 @@ const sess = {
     resave: false, 
     saveUnitialized: true,
     store: new SequelizeStore({
-        db: sequelize,
-        expiration: 60 * 60 * 1000  // set session to log out after 60 minutes of inactivity
-    }),
+        db: sequelize
+   }),
 };
 
 app.use(session(sess));
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-app.use(session(sess));
+//app.use(session(sess));
 
 sequelize.sync({ force: false }).then(( ) => {
     app.listen(PORT,() => console.log('Now listening'));

@@ -83,7 +83,7 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session) {
+  if (req.session.user_id) {
     res.redirect('/dashboard');
     return;
   }

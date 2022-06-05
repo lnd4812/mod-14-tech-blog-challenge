@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  
+//   if (rq.session) {
     Comment.create({
         comment: req.body.comment,
         post_id: req.body.post_id,
@@ -23,6 +23,7 @@ router.post('/', withAuth, (req, res) => {
             console.log(err);
            res.status(500).json(err);
         });
+    // }
 });
 
 router.delete('/:id', withAuth, (req, res) => {
