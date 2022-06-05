@@ -27,12 +27,12 @@ An animated example of the expected layout of the blog is included in the Challe
 
 ## Installation
 
-* from back-end.
-* from heroku
-
+* From localhost:3001 - update credentials in config/connection file to run from localhost and then type in npm start (although env would also need to be updated).
+* from Heroku - Credentials in .env folder and in config/connection have been set to deploy on heroku. Click on link below to deploy.
+  
 ## Usage
 
-The site enables a user to view all posts on this blogging website and, once logged in, create their own posts. Homepage features all posts that have been created and saved on the site, with the ability to create, edit, delete or comment on a post from the site's dashboard being restricted only to those logged into the site.  A user may create a new account through a separate link and once that account has been created, the user is brought to the dashboard page.  Once logged out, that user may subsequently access the dashboard by logging in with the saved username and password.
+The site enables a user to view all posts on this blogging website and, once logged in, create their own posts. Homepage features all posts that have been created and saved on the site, with the ability to create, edit, delete or comment on a post from the site's dashboard being restricted only to those logged into the site.  A user may create a new account through a separate link and once that account has been created, the user is brought to the dashboard page.  Once logged out, that user may subsequently access the dashboard by logging in with the saved username and password.  Ideally, a logged in user should also be able to add comments to any post.  Still working on that.
 
 ## License
 
@@ -51,6 +51,7 @@ Insomnia used for testing back-end. N/A once deployed.
 * The majority of the program coding, other than that in the acceptance criteria that does not duplicate what the module 13 and 14 main lessons generate, is based on those lessons.  As the challenge and acceptance criteria are very similar to those lessons and a large percentage of the variables and other coding are based on standard practicies and naming conventions, it was somewhat challenging not to.  
 * Documentation for Sequelize [npm page](https://www.npmjs.com/package/sequelize) and Connect-Session-Sequelize [npm page](https://www.npmjs.com/package/connect-session-sequelize)
 * As usual, several visits to Stack Overflow [website](https://stackoverflow.com) provided some finetuning or helped to clarify certain items in the modules.
+* TA's during office hours and my tutor in my weekly tutoring session were also key in helping me to get this app working (as much as it does work).
 
 ## Questions?
 
