@@ -3,12 +3,8 @@
     {{#each this}}
 
     <section class="comment">
-        
-        <div class="commenting">
-            {{user.username}} on {{format_date created_at}}
-        </div>
-
-        <textarea class="comment-statement">{{comments}}</textarea>
+        {{user.username}} on {{format_date created_at}}
+    <textarea id="comment-statement">{{comments}}</textarea>
 
     </section>
     

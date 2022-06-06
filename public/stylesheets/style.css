@@ -136,7 +136,7 @@
   }
   
   textarea {
-    min-width: 40%;
+    min-width: 90%;
     min-height: 100px;
   }
   
@@ -248,17 +248,12 @@
     background-color: var(--secondary-color);
   }
   
-  .post .commenting {
-    padding-left: 5px;
+  .comment .comment-statement {
+    background-color: var(--primary-color);
+    color: var(--light-color);
   }
 
-  .comment .commenting {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-  }
-  
-  .comment .comment-statement {
+  .comment {
     color: var(--primary-color);
   }
 
