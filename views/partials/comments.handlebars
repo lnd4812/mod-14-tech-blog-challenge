@@ -1,10 +1,12 @@
-<div class="comments">
+<div class="added-comments">
 
     {{#each this}}
 
     <section class="comment">
-        {{user.username}} on {{format_date created_at}}
-    <textarea id="comment-statement">{{comments}}</textarea>
+        <div class="commenter"> 
+            {{user.username}} on {{format_date created_at}}
+        </div>
+    <div class="comment-added">{{comment}}</div>
 
     </section>
     
